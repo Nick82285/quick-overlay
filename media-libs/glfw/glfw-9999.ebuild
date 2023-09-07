@@ -3,15 +3,15 @@
 
 EAPI=8
 
-inherit cmake-multilib
+inherit cmake-multilib git-r3
 
 DESCRIPTION="Portable OpenGL FrameWork"
 HOMEPAGE="https://www.glfw.org/"
-SRC_URI="https://github.com/glfw/glfw/archive/${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/glfw/glfw.git"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~riscv x86"
 IUSE="wayland-only"
 
 RDEPEND="
