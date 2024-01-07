@@ -36,7 +36,6 @@ RDEPEND="!sys-firmware/edk2-ovmf-bin"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-202105-werror.patch"
-	"${FILESDIR}/${PN}-202202-lld-textrels.patch"
 	"${FILESDIR}/${PN}-202202-binutils-2.41-textrels.patch"
 )
 
