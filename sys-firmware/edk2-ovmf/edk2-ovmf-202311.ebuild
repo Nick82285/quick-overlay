@@ -11,7 +11,7 @@ inherit python-any-r1 readme.gentoo-r1 secureboot
 DESCRIPTION="UEFI firmware for 64-bit x86 virtual machines"
 HOMEPAGE="https://github.com/tianocore/edk2"
 
-BUNDLED_OPENSSL_SUBMODULE_SHA="d82e959e621a3d597f1e0d50ff8c2d8b96915fd7"
+BUNDLED_OPENSSL_SUBMODULE_SHA="de90e54bbe82e5be4fb9608b6f5c308bb837d355"
 BUNDLED_BROTLI_SUBMODULE_SHA="f4153a09f87cbb9c826d8fc12c74642bb2d879ea"
 
 # TODO: talk with tamiko about unbundling (mva)
