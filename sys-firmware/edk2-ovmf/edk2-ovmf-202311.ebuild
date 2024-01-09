@@ -13,6 +13,7 @@ HOMEPAGE="https://github.com/tianocore/edk2"
 
 BUNDLED_OPENSSL_SUBMODULE_SHA="de90e54bbe82e5be4fb9608b6f5c308bb837d355"
 BUNDLED_BROTLI_SUBMODULE_SHA="f4153a09f87cbb9c826d8fc12c74642bb2d879ea"
+BUNDLED_MIPISYST_SUBMODULE_SHA="370b5944c046bab043dd8b133727b2135af7747a"
 
 # TODO: talk with tamiko about unbundling (mva)
 
@@ -22,6 +23,7 @@ BUNDLED_BROTLI_SUBMODULE_SHA="f4153a09f87cbb9c826d8fc12c74642bb2d879ea"
 SRC_URI="https://github.com/tianocore/edk2/archive/edk2-stable${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/openssl/openssl/archive/${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz -> openssl-${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz
 	https://github.com/google/brotli/archive/${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz -> brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz
+	https://github.com/MIPI-Alliance/public-mipi-sys-t/archive/${BUNDLED_MIPISYST_SUBMODULE_SHA}.tar.gz -> mipisyst-${BUNDLED_MIPISYST_SUBMODULE_SHA}.tar.gz
 	https://dev.gentoo.org/~ajak/distfiles/edk2-ovmf-202202-qemu-firmware.tar.xz"
 
 LICENSE="BSD-2 MIT"
@@ -80,6 +82,7 @@ src_prepare() {
 	cp -rl "${WORKDIR}/openssl-${BUNDLED_OPENSSL_SUBMODULE_SHA}"/* "CryptoPkg/Library/OpensslLib/openssl/"
 	cp -rl "${WORKDIR}/brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}"/* "BaseTools/Source/C/BrotliCompress/brotli/"
 	cp -rl "${WORKDIR}/brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}"/* "MdeModulePkg/Library/BrotliCustomDecompressLib/brotli/"
+	cp -rl "${WORKDIR}/mipisyst-${BUNDLED_MIPISYST_SUBMODULE_SHA}"/* "MdePkg/Library/MipiSysTLib/mipisyst/"
 
 	sed -i -r \
 		-e "/function SetupPython3/,/\}/{s,\\\$\(whereis python3\),${EPYTHON},g}" \
