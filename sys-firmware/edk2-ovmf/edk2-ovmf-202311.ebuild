@@ -82,7 +82,7 @@ src_prepare() {
 	cp -rl "${WORKDIR}/openssl-${BUNDLED_OPENSSL_SUBMODULE_SHA}"/* "CryptoPkg/Library/OpensslLib/openssl/"
 	cp -rl "${WORKDIR}/brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}"/* "BaseTools/Source/C/BrotliCompress/brotli/"
 	cp -rl "${WORKDIR}/brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}"/* "MdeModulePkg/Library/BrotliCustomDecompressLib/brotli/"
-	cp -rl "${WORKDIR}/mipisyst-${BUNDLED_MIPISYST_SUBMODULE_SHA}"/* "MdePkg/Library/MipiSysTLib/mipisyst/"
+	cp -rl "${WORKDIR}/mipisyst-${BUNDLED_MIPISYST_SUBMODULE_SHA}"/public-mipi-sys-t-/* "MdePkg/Library/MipiSysTLib/mipisyst/"
 
 	sed -i -r \
 		-e "/function SetupPython3/,/\}/{s,\\\$\(whereis python3\),${EPYTHON},g}" \
