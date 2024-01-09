@@ -87,6 +87,8 @@ src_prepare() {
 	cp -rl "${WORKDIR}/public-mipi-sys-t-${BUNDLED_MIPISYST_SUBMODULE_SHA}"/* "MdePkg/Library/MipiSysTLib/mipisyst/"
 	cp -rl "${WORKDIR}/mbedtls-${BUNDLED_MBEDTLS_SUBMODULE_SHA}"/* "CryptoPkg/Library/MbedTlsLib/mbedtls/"
 
+	cp -rl "${WORKDIR}/edk2-edk2-stable202202/qemu" .
+
 	sed -i -r \
 		-e "/function SetupPython3/,/\}/{s,\\\$\(whereis python3\),${EPYTHON},g}" \
 		"${S}"/edksetup.sh || die "Fixing for correct Python3 support failed"
