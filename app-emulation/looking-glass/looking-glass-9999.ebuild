@@ -9,7 +9,7 @@ MY_PN="LookingGlass"
 MY_PV="${PV//1_beta/B}"
 MY_PV="${MY_PV//_/-}"
 
-inherit cmake tmpfiles git-r3
+inherit cmake git-r3
 
 DESCRIPTION="An extremely low latency KVMFR (KVM FrameRelay) implementation for guests with VGA PCI Passthrough."
 HOMEPAGE="https://looking-glass.io"
@@ -25,7 +25,6 @@ RDEPEND="dev-libs/libconfig:0=
 	dev-libs/nettle:=[gmp]
 	media-libs/freetype:2
 	media-libs/fontconfig:1.0
-	media-libs/sdl2-ttf
 	media-libs/libsamplerate
 	gui-libs/libdecor
 	virtual/glu
@@ -47,32 +46,11 @@ BDEPEND="virtual/pkgconfig"
 CMAKE_USE_DIR="${S}"/client
 
 src_unpack() {
-	# for FILE in ${A}; do
-	# 	if [[ "${FILE}" == *".tar.gz" ]]; then
-	# 		# unpack source files
-	# 		unpack "${FILE}"
-	# 		mv "${WORKDIR}/${PN}-${MY_PV}" "${WORKDIR}/${PN}"
-	# 	fi
-
-	# 	if [[ "${FILE}" == *".zip" ]]; then
-	#                 # Extract the host exe file
-	#                 mkdir "${PN}-host"
-	#                 cd "${PN}-host"
-	#                 unpack "${FILE}"
-	#         fi
-	# done
-
 	git-r3_src_unpack
 }
 
 src_prepare() {
 	default
-
-	# if use host ; then
-	# 	# Host file comes as zip but we need it to be .iso in order to mount it in QEMU"
-	# 	mkisofs -lJR -iso-level 4 -o "${PN}-host-${MY_PV}.iso" "${WORKDIR}/${PN}-host"
-	# 	rm -R "${WORKDIR}/${PN}-host"
-	# fi
 
 	cmake_src_prepare
 }
@@ -107,13 +85,6 @@ src_install() {
 	einstalldocs
 
 	dobin "${BUILD_DIR}"/looking-glass-client
-	newtmpfiles "${FILESDIR}"/${PN}-tmpfiles.d ${PN}.conf
-
-	# if use host ; then
-	# 	insinto /usr/share/drivers/windows
-	# 	doins "${PN}-host-${MY_PV}.iso"
-	# 	dosym "${PN}-host-${MY_PV}.iso" "/usr/share/drivers/windows/${PN}-host.iso"
-	# fi
 }
 
 pkg_postinst() {
