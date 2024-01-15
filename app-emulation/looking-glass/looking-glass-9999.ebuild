@@ -109,9 +109,6 @@ src_install() {
 	dobin "${BUILD_DIR}"/looking-glass-client
 	newtmpfiles "${FILESDIR}"/${PN}-tmpfiles.d ${PN}.conf
 
-	dodir /etc/env.d
-	echo "CONFIG_PROTECT=/usr/lib/tmpfiles.d/looking-glass.conf" >> "${ED}"/etc/env.d/99looking-glass || die
-
 	# if use host ; then
 	# 	insinto /usr/share/drivers/windows
 	# 	doins "${PN}-host-${MY_PV}.iso"
