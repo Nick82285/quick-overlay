@@ -86,7 +86,3 @@ src_install() {
 
 	dobin "${BUILD_DIR}"/looking-glass-client
 }
-
-pkg_postinst() {
-	default
-}
