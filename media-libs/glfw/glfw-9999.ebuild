@@ -43,7 +43,7 @@ BDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		-DGLFW_BUILD_EXAMPLES=no
-		-DGLFW_USE_WAYLAND=$(usex wayland-only)
+		-DGLFW_BUILD_WAYLAND=$(usex wayland-only)
 	)
 
 	cmake-multilib_src_configure
