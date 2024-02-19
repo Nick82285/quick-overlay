@@ -52,7 +52,7 @@ src_configure() {
 		$(meson_use examples)
 		$(meson_use test tests)
 		$(meson_feature jpeg)
-		$(meson_feature ssl_tls)
+		$(meson_feature ssl tls)
 		$(meson_feature websockets nettle)
 		$(meson_use tracing systemtap)
 		$(meson_feature gbm)
