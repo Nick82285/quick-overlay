@@ -28,7 +28,7 @@ src_prepare() {
 	# The bundled copy includes cdefs which breaks on musl and this header is
 	# already available on glibc. See bug #828806 and
 	# https://github.com/any1/aml/issues/11.
-	rm include/sys/queue.h || die
+	# rm include/sys/queue.h || die
 }
 
 src_configure() {
