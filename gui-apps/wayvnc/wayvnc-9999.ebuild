@@ -21,7 +21,7 @@ SLOT="0"
 IUSE="gbm pam test tracing"
 
 RDEPEND="
-	=dev-libs/aml-0.3*
+	dev-libs/aml
 	dev-libs/jansson:=
 	dev-libs/wayland
 	gui-libs/neatvnc
